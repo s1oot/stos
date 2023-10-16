@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cmath>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -27,7 +28,7 @@ int main() {
     else  {
         double x1 = (-b - sqrt(d)) / (2 * a);
         double x2 = (-b + sqrt(d)) / (2 * a);
-        cout << x1 << " " << x2 << endl;
+        cout  << x1  << " " << x2 << endl;
     }
 
 return 0;
