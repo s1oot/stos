@@ -15,4 +15,4 @@ int main() {
         cout << zxc << endl;
     }
 }
-
+//submit 66.67 
