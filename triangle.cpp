@@ -30,7 +30,7 @@ public:
     bool isFaceUp() const { return faceUp; }
     void flip() { faceUp = !faceUp; }
     string toString() const {
-        if (faceUp) return "===";  
+        if (faceUp) return "===";
         string rankStr;
         switch (rank) {
         case 1: rankStr = "A"; break;
@@ -94,9 +94,9 @@ public:
     void run();
 
     //funkcii dla ruchu 
-    bool moveCardToFoundation(int column);      
-    bool moveCardBetweenColumns(int from, int to); 
-    bool isValidMove(const Card& fromCard, const Card& toCard) const; 
+    bool moveCardToFoundation(int column);
+    bool moveCardBetweenColumns(int from, int to);
+    bool isValidMove(const Card& fromCard, const Card& toCard) const;
 };
 
 void Game::initGame() {
@@ -108,10 +108,10 @@ void Game::initGame() {
             deck.popWasteTop();
 
             if (j == i) {
-                card.flip(); 
+                card.flip();
             }
             else {
-       
+
             }
 
             tableau[i].push_back(card);
@@ -126,14 +126,10 @@ string padCard(const string& card) {
 }
 
 void Game::generateRandomCards() {
-    static vector<Card> savedCards;  
-    static size_t currentIndex = 0; 
+    static vector<Card> savedCards;
+    static size_t currentIndex = 0;
 
     if (deck.stockEmpty()) {
-        if (savedCards.empty()) {
-            cout << "Колода пуста! Невозможно показать карты." << endl;
-            return;
-        }
 
         if (currentIndex >= savedCards.size()) {
             currentIndex = 0;
@@ -153,12 +149,12 @@ void Game::generateRandomCards() {
             Card card = deck.getWasteTop();
             deck.popWasteTop();
 
-            if (card.isFaceUp()) {  
-                card.flip();       
+            if (card.isFaceUp()) {
+                card.flip();
             }
 
             randomCards.push_back(card);
-            savedCards.push_back(card);  
+            savedCards.push_back(card);
         }
     }
 
@@ -168,13 +164,13 @@ void Game::generateRandomCards() {
 
 //ruch z kolumny do 8 9 10 11 
 bool Game::moveCardToFoundation(int column) {
-    
+
     return false;
 }
 
 //ruch miedzu kolumnami
 bool Game::moveCardBetweenColumns(int from, int to) {
-    
+
     return false;
 }
 
@@ -185,10 +181,9 @@ bool Game::isValidMove(const Card& fromCard, const Card& toCard) const {
 }
 
 void Game::display() const {
-    cout << "        0                         8    9    10   11 " << endl;
+    cout << "        0                        8    9    10   11 " << endl;
     cout << "--------------------------------------------------" << endl;
 
-    // Отображение случайных карт под 0
     for (const auto& card : randomCards) {
         cout << padCard(card.toString());
     }
